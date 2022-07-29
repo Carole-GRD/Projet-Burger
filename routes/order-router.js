@@ -14,8 +14,5 @@ orderRouter.route('/:id')
 orderRouter.route('/client/:id')
     .get((req, res) => {res.sendStatus(501)});
 
-orderRouter.route('/burger/:id')
-    .get((req, res) => {res.sendStatus(501)});
-
 // on exporte le router "enfant"
 module.exports = orderRouter;
