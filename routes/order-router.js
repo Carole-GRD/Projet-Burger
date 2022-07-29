@@ -1,4 +1,4 @@
-// on importe express et on utilise la méthode Router()
+// on importe le module express et on utilise la méthode Router()
 const orderRouter = require('express').Router();
 
 // configuration des routes
