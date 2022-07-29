@@ -1,0 +1,19 @@
+{
+  "name": "projet-burger---labo-indivuel---back-end",
+  "version": "1.0.0",
+  "description": "Projet Burger réalisé lors du labo individuel (back-end) de la formation JSFS IF3Namur.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carole-GRD/Projet-Burger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Carole-GRD/Projet-Burger/issues"
+  },
+  "homepage": "https://github.com/Carole-GRD/Projet-Burger#readme"
+}
