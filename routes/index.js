@@ -1,5 +1,5 @@
 // on importe les router "enfants"
-const clientRouter = require('./client-router');
+const userRouter = require('./user-router');
 const burgerRouter = require('./burger-router');
 const orderRouter = require('./order-router');
 const authRouter = require('./auth-router');
@@ -8,9 +8,10 @@ const authRouter = require('./auth-router');
 const router = require('express').Router();
 
 // configuration des différentes routes
-router.use('/client', clientRouter);
+// on indique au serveur quel router utiliser une fois arrivé sur le segment 
+router.use('/user', userRouter);
 router.use('/burger', burgerRouter);
-router.use('/commande', orderRouter);
+router.use('/order', orderRouter);
 router.use('/auth', authRouter);
 
 // on exporte le router "parent"

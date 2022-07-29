@@ -11,7 +11,7 @@ orderRouter.route('/:id')
     .put((req, res) => {res.sendStatus(501)})
     .delete((req, res) => {res.sendStatus(501)});
 
-orderRouter.route('/client/:id')
+orderRouter.route('/user/:id')
     .get((req, res) => {res.sendStatus(501)});
 
 // on exporte le router "enfant"

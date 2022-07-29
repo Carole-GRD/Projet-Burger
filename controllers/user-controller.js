@@ -1,5 +1,5 @@
 // fonctions appelées pour chaque routes
-const clientController = {
+const userController = {
     getAll : (req, res) => {
         console.log('Récupération de toutes les clients');
         res.sendStatus(501);
@@ -20,4 +20,4 @@ const clientController = {
 
 
 // on exporte le controller
-module.exports = clientController;
+module.exports = userController;

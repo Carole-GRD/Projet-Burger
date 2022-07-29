@@ -4,8 +4,8 @@ require('dotenv-flow').config();
 
 // Création du serveur Express
 const express = require('express');
-const mongoose = require('mongoose');
 const app = express();
+const mongoose = require('mongoose');
 
 
 // variables d'environnement
