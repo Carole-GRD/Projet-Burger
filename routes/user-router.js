@@ -8,6 +8,11 @@ const userController = require('../controllers/user-controller');
 
 // configuration des différentes routes
 userRouter.route('/')
+    // ------------------------------------------------------------------------
+    // "post" est une route temporaire pour créer quelques "users" en attendant de faire le "register"
+    // TODO: à commenter ou à supprimer par la suite
+    .post(userController.create)     
+    // ------------------------------------------------------------------------
     .get(userController.getAll);
 
 userRouter.route('/:id')

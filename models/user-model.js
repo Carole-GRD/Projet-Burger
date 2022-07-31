@@ -24,6 +24,12 @@ const userSchema = new Schema({
     },
     adress : {
         type : String
+    },
+    role : {
+        type : String,
+        enum : ['User', 'Moderator', 'Admin'],
+        required : true,
+        default : 'User',
     }
 }, {
     collection : 'User',
