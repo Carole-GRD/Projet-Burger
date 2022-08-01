@@ -1,31 +1,62 @@
+const Burger = require("../models/burger-model");
 
 
 const burgerController = {
 
-    getAll : (req, res) => {
-        console.log('Récupération de tous les burgers');
-        res.sendStatus(501);
+    getAll : async (req, res) => {
+
+        const burgers = await Burger.find()
+        .select( { burgerName : 1, ingredients : 1, allergen : 1, price : 1, availability : 1 } );
+        res.status(200).json(burgers);
+
     },
 
-    getById : (req, res) => {
-        console.log(`Récupération du burger dont l'id est [${req.params.id}]`);
-        res.sendStatus(501);
+    getById : async (req, res) => {
+
+        const id = req.params.id;
+        const burger = await Burger.findById(id);
+        if (!burger) {
+            return res.sendStatus(404);
+        }
+        res.status(200).json(burger);
+
     },
 
-    create : (req, res) => {
-        console.log('Création d\'un nouveau burger');
-        res.sendStatus(501);
+    create : async (req, res) => {
+        
+        const burgerToAdd = Burger(req.body);
+        await burgerToAdd.save();
+        res.status(200).json(burgerToAdd);
+
     },
 
-    update : (req, res) => {
-        console.log(`Modification du burger dont l'id est [${req.params.id}]`);
-        res.sendStatus(501);
+    update : async (req, res) => {
+        
+        const id = req.params.id;
+        const { burgerName, ingredients, allergen, price, availability } = req.body;
+        const burgerToUpdate = await Burger.findByIdAndUpdate(id, {
+            burgerName,
+            ingredients,
+            allergen,
+            price,
+            availability
+        }, { returnDocument : 'after' });
+        if (!burgerToUpdate) {
+            return res.sendStatus(404);
+        };
+        res.status(200).json(burgerToUpdate);
+
     },
 
-    delete : (req, res) => {
-        console.log(`Suppression du burger dont l'id est [${req.params.id}]`);
-        res.sendStatus(501);
-    },
+    delete : async (req, res) => {
+        
+        const id = req.params.id;
+        const burgerToDelete = await Burger.findByIdAndDelete(id);
+        if (!burgerToDelete) {
+            return res.sendStatus(404);
+        }
+        res.status(204);
+    }
 
 };
 

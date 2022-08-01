@@ -1,17 +1,18 @@
 const { Schema, model } = require('mongoose');
 
 const burgerSchema = new Schema({
-    name : {
+    burgerName : {
         type : String,
         require : true,
         unique : true,
         trim : true
     },
-    ingredients : [
-        { viande : String },
-        { garniture : String },
-        { sauce : String }
-    ],
+    ingredients : {
+        viande : String,
+        pain : String,
+        garniture : Array,
+        sauce : String
+    },
     allergen : {
         type : Boolean,
         require : true
@@ -21,8 +22,10 @@ const burgerSchema = new Schema({
         require : true
     },
     availability : {
-        type : Boolean,
-        require : true
+        type : String,
+        enum : ['en stock', 'épuisé'],
+        default : 'en stock'
+        // en stock : boolean    true (ou false)
     }
 }, {
     collection : 'Burger',
