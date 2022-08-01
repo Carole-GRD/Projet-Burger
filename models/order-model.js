@@ -5,21 +5,17 @@ const User = require('./user-model');
 const Burger = require('./burger-model');
 
 const orderSchema = new Schema({
-    userEmail : {
+    userId : {
         type : Types.ObjectId,
         ref : User,
         require : true
     },
-    userAdress : {
-        type : Types.ObjectId,
-        ref : User,
-        require : true
-    },
-    burgers : {
-        type : Types.ObjectId,
-        ref : Burger,
-        require : true
-    },
+    burgers : [{
+        burgerId : {
+            type : Types.ObjectId,
+            ref : Burger,
+            require : true
+    }}],
     statusOrder : {
         type : String,
         enum : ['Create', 'Pending', 'Done'],
