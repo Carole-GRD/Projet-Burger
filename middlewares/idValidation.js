@@ -4,7 +4,7 @@ const idValidation = () => {
     return (req, res, next) => {
         const id = req.params.id;
         if (!mongoose.isValidObjectId(id)) {
-            return res.sendStatus(404);
+            return res.sendStatus(400);
         };        
         next();
     }
