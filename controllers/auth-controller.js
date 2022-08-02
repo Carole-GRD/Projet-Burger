@@ -2,6 +2,7 @@ const User = require('../models/user-model');
 
 const argon2 = require('argon2');
 
+const jwtUtils = require('../utils/jwt-utils');
 
 const authController = {
 
@@ -23,7 +24,8 @@ const authController = {
             return res.status(401).json({error : 'Bad credential'});
         }
 
-        return res.json({msg : 'Vous êtes bien connecté.e'});
+        const token = await jwtUtils.generate(user);
+        return res.json(token);
 
     },
 

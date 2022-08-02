@@ -45,6 +45,8 @@ app.use( async (req, res, next) => {
 // on indique à notre serveur qu'une fois arrivé sur la route /api, il doit utiliser notre router
 app.use('/api', router);
 
+// console.log(process.env);
+
 
 // on met le serveur sur écoute
 app.listen(PORT, () => {

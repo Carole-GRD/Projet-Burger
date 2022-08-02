@@ -13,16 +13,16 @@ Commandes
 
 
 ✔ auth-controller ->  register  + l'ajouter dans auth-router @done(22-08-02 13:33)
-☐ auth-controller  ->   login    + l'ajouter dans auth-router
+✔ auth-controller  ->   login    + l'ajouter dans auth-router @done(22-08-02 14:54)
 
 
 ☐ jwt-utils    
-    ☐ generate    + l'ajouter dans auth-router   
-    ☐ decode    + l'ajouter dans auth-router
+    ✔ generate    +   l'ajouter dans auth-controller @done(22-08-02 15:37)
+    ☐ decode      +   l'ajouter dans auth-controller
 
 
-☐ validator auth (login et register) + ajout dans auth-router
-☐ authJwtValidation (middleware)
+☐ auth-validator (login et register) + ajout dans auth-router
+☐ auth-jwt-validation (middleware)
 
 
 après avoir fait le "login" et le "register"
