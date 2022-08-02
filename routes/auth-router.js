@@ -1,3 +1,5 @@
+const authController = require('../controllers/auth-controller');
+
 // on importe le module express et on utilise la méthode Router()
 const authRouter = require('express').Router();
 
@@ -6,7 +8,7 @@ authRouter.route('/login')
     .post((req, res) => {res.sendStatus(501)});
 
 authRouter.route('/register')
-    .post((req, res) => {res.sendStatus(501)});
+    .post(authController.register);
 
 // on exporte le router "enfant"
 module.exports = authRouter;

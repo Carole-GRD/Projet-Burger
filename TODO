@@ -8,21 +8,23 @@ Commandes
 'Alt+S' // Triggers `Todo: Toggle Start`
 'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
 
-☐ validator burger + ajout dans burger-router
-☐ validator order + ajout dans order-router
-☐ validator auth + ajout dans auth-router
+✔ validator burger + ajout dans burger-router @done(22-08-02 11:59)
+✔ validator order + ajout dans order-router @done(22-08-02 12:00)
+
+
+☐ auth-controller ->  register  + l'ajouter dans auth-router
+
 
 ☐ jwt-utils    
-    ☐ generate
+    ☐ generate   
     ☐ decode
 
 
-☐ auth-controller  
-    ☐ register
-    ☐ login 
-☐ auth-router
+☐ auth-controller  ->   login    + l'ajouter dans auth-router
 
 
+
+☐ validator auth (login et rigister) + ajout dans auth-router
 ☐ authJwtValidation (middleware)
 
 
