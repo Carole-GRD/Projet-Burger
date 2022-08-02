@@ -12,7 +12,8 @@ const bodyValidation = (yupValidator) => {
         } 
         
         catch (error) {
-            // console.log(error);
+            console.log(error);
+            // -> utile pour la recherche d'erreur dans les fichiers "validators"
             return res.sendStatus(400);
         }
 

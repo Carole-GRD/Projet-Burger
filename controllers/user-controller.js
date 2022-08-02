@@ -1,8 +1,9 @@
-// TODO: userDTO ou .select() ??
+// userDTO ou .select()  -> dans ce projet : méthode .select() choisie
 // const userDTO = require("../dto/user-dto");
+
 const User = require("../models/user-model");
 
-// TODO: userDTO ou .select() ??
+// userDTO ou .select()  -> dans ce projet : méthode .select() choisie
 // const userMapperToDTO = user => new userDTO(user.id, user.firstname, user.lastname, user.email, user.adress);
 
 // fonctions appelées pour chaque routes

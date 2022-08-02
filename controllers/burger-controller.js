@@ -55,7 +55,7 @@ const burgerController = {
         if (!burgerToDelete) {
             return res.sendStatus(404);
         }
-        res.status(204);
+        res.sendStatus(204);
     }
 
 };

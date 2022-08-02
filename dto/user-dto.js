@@ -1,4 +1,7 @@
-// TODO: décommenter ou supprimer
+// -------------------------------------------------------------------
+// userDTO ou .select()  -> dans ce projet : méthode .select() choisie
+// voir fichier "user-controller.js"
+// -------------------------------------------------------------------
 
 // class userDTO {
 
