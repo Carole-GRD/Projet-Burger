@@ -12,6 +12,12 @@ const userSchema = new Schema({
         require : true,
         trim : true
     },
+    pseudo : {
+        type : String,
+        required : true,
+        unique : true,
+        trim : true,
+    },
     email : {
         type : String,
         unique : true,

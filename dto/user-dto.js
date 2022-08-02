@@ -5,10 +5,11 @@
 
 // class userDTO {
 
-//     constructor (id, firstname, lastname, email, adress) {
+//     constructor (id, firstname, lastname, pseudo, email, adress) {
 //         this.id = id;
 //         this.firstname = firstname;
 //         this.lastname = lastname;
+//         this.pseudo = pseudo;
 //         this.email = email;
 //         this.adress = adress;
 //     }

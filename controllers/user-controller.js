@@ -4,7 +4,7 @@
 const User = require("../models/user-model");
 
 // userDTO ou .select()  -> dans ce projet : méthode .select() choisie
-// const userMapperToDTO = user => new userDTO(user.id, user.firstname, user.lastname, user.email, user.adress);
+// const userMapperToDTO = user => new userDTO(user.id, user.firstname, user.lastname, user.pseudo, user.email, user.adress);
 
 // fonctions appelées pour chaque routes
 const userController = {
@@ -21,7 +21,7 @@ const userController = {
     getAll : async (req, res) => {
 
         const users = await User.find()
-        .select({ firstname : 1, lastname : 1, email : 1, adress : 1});
+        .select({ firstname : 1, lastname : 1, pseudo : 1, email : 1, adress : 1});
         res.status(200).json(users);
 
     },
@@ -30,7 +30,7 @@ const userController = {
 
         const id = req.params.id;
         const user = await User.findById(id)
-        .select({ firstname : 1, lastname : 1, email : 1, adress : 1});
+        .select({ firstname : 1, lastname : 1, pseudo : 1, email : 1, adress : 1});
         if (!user) {
             return res.sendStatus(404);
         }
@@ -41,15 +41,16 @@ const userController = {
     update : async (req, res) => {
 
         const id = req.params.id;
-        const { firstname, lastname, email, adress } = req.body;
+        const { firstname, lastname, pseudo, email, adress } = req.body;
         const userToUpdate = await User.findByIdAndUpdate(id, {
             firstname,
             lastname,
+            pseudo,
             email,
             adress
         }, 
         { returnDocument : 'after' })
-        .select({ firstname : 1, lastname : 1, email : 1, adress : 1});
+        .select({ firstname : 1, lastname : 1, pseudo : 1, email : 1, adress : 1});
         if (!userToUpdate) {
             return res.sendStatus(404);
         }
