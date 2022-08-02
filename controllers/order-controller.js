@@ -75,7 +75,15 @@ const orderController = {
             userId,
             burgers,
             statusOrder
-        }, { returnDocument : 'after' });
+        }, { returnDocument : 'after' })
+        .populate({
+            path : 'userId',
+            select : { firstname : 1, lastname : 1, email : 1, adress : 1 }
+        })
+        .populate({
+            path : 'burgers.burgerId',
+            select : { burgerName : 1, price : 1 }
+        });
         if (!orderToUpdate) {
             return res.sendStatus(404);
         }
@@ -90,7 +98,7 @@ const orderController = {
         if (!orderToDelete) {
             return res.sendStatus(404);
         }
-        res.status(204);
+        res.sendStatus(204);
 
     }
 }

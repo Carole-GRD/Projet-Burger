@@ -1,5 +1,8 @@
 const orderController = require('../controllers/order-controller');
+// on importe les middlewares et le "validator"
 const idValidation = require('../middlewares/idValidation');
+const bodyValidation = require('../middlewares/bodyValidation');
+const { createOrderValidator, updateOrderValidator } = require('../validators/order-validator');
 
 // on importe le module express et on utilise la méthode Router()
 const orderRouter = require('express').Router();
@@ -7,11 +10,11 @@ const orderRouter = require('express').Router();
 // configuration des routes
 orderRouter.route('/')
     .get(orderController.getAll)
-    .post(orderController.create);
+    .post(bodyValidation(createOrderValidator) , orderController.create);
 
 orderRouter.route('/:id')
     .get(idValidation(), orderController.getByID)
-    .put(idValidation(), orderController.update)
+    .put(idValidation(), bodyValidation(updateOrderValidator) , orderController.update)
     .delete(idValidation(), orderController.delete);
 
 orderRouter.route('/user/:id')

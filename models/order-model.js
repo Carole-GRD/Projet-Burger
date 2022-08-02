@@ -18,8 +18,8 @@ const orderSchema = new Schema({
     }}],
     statusOrder : {
         type : String,
-        enum : ['Create', 'Pending', 'Done'],
-        default : 'Create',
+        enum : ['Created', 'Pending', 'Done'],
+        default : 'Created',
         require : true
     }
 }, {
