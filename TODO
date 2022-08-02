@@ -12,19 +12,16 @@ Commandes
 ✔ validator order + ajout dans order-router @done(22-08-02 12:00)
 
 
-☐ auth-controller ->  register  + l'ajouter dans auth-router
-
-
-☐ jwt-utils    
-    ☐ generate   
-    ☐ decode
-
-
+✔ auth-controller ->  register  + l'ajouter dans auth-router @done(22-08-02 13:33)
 ☐ auth-controller  ->   login    + l'ajouter dans auth-router
 
 
+☐ jwt-utils    
+    ☐ generate    + l'ajouter dans auth-router   
+    ☐ decode    + l'ajouter dans auth-router
 
-☐ validator auth (login et rigister) + ajout dans auth-router
+
+☐ validator auth (login et register) + ajout dans auth-router
 ☐ authJwtValidation (middleware)
 
 

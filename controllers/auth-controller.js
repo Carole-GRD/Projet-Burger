@@ -7,6 +7,24 @@ const authController = {
 
     login : async (req, res) => {
 
+        const { email, password } = req.body;
+
+        const credentialFilter = {email : email};
+
+        const user = await User.findOne(credentialFilter);
+
+        if (!user) {
+            return res.status(401).json({error : 'Bad credential'});
+        }
+
+        const isPasswordValid = await argon2.verify(user.password, password);
+
+        if (!isPasswordValid) {
+            return res.status(401).json({error : 'Bad credential'});
+        }
+
+        return res.json({msg : 'Vous êtes bien connecté.e'});
+
     },
 
     register : async (req, res) => {

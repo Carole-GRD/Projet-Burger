@@ -5,7 +5,7 @@ const authRouter = require('express').Router();
 
 // configuration des routes
 authRouter.route('/login')
-    .post((req, res) => {res.sendStatus(501)});
+    .post(authController.login);
 
 authRouter.route('/register')
     .post(authController.register);
