@@ -9,13 +9,13 @@ const User = require("../models/user-model");
 // fonctions appelées pour chaque routes
 const userController = {
     // ----------------------------------------------------------------------------
-    // TODO: à commenter ou à supprimer par la suite
+    // à commenter ou à supprimer par la suite
     // j'ajoute temporairement la fonction "create" qui permet de créer quelques "users" pour tester dans insomnia, en attendant de faire le "register" 
-    create : async (req, res) => {
-        const userToAdd = User(req.body);
-        await userToAdd.save();
-        res.status(200).json(userToAdd);
-    },
+    // create : async (req, res) => {
+    //     const userToAdd = User(req.body);
+    //     await userToAdd.save();
+    //     res.status(200).json(userToAdd);
+    // },
     // ----------------------------------------------------------------------------
 
     getAll : async (req, res) => {

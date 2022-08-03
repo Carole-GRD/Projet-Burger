@@ -22,10 +22,17 @@ Commandes
 
 
 ✔ auth-validator (login et register) + ajout dans auth-router @done(22-08-03 09:53)
-☐ auth-jwt-validation (middleware)
-
-
 après avoir fait le "login" et le "register"
-☐ supprimer "create" dans "user-controller.js"     
-☐ supprimer "post" dans "user-router.js"
+☐ supprimer ou commenter "create" dans "user-controller.js"
+☐ supprimer ou commenter "post" dans "user-router.js"
+
+✔ auth-jwt-validation (middleware) @done(22-08-03 13:48)
+
+☐ query -> offset, limit et status
+
+☐ ajouter authentication dans les router ATTENTION 
+    -> à faire en dernier sinon on ne peut plus tester dans insomnia
+
+
+
 

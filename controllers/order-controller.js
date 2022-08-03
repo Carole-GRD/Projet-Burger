@@ -4,6 +4,12 @@ const Order = require("../models/order-model");
 const orderController = {
 
     getAll : async (req, res) => {
+        // console.log(req.query);
+
+        const offset = req.query.offset ? req.query.offset : 0;
+        const limit = req.query.limit ? req.query.limit : 10;
+
+
 
         const orders = await Order.find()
         .populate({
@@ -13,8 +19,13 @@ const orderController = {
         .populate({
             path : 'burgers.burgerId',
             select : { burgerName : 1, price : 1 }
-        });
-        res.status(200).json(orders);
+        })
+        .limit(limit)
+        .skip(offset);
+
+        const count = await Order.countDocuments();
+        const data = { 'Orders' : orders, 'Count' : count };
+        res.status(200).json(data);
 
     },
 
@@ -39,6 +50,9 @@ const orderController = {
 
     getByUser : async (req, res) => {
 
+        const offset = req.query.offset ? req.query.offset : 0;
+        const limit = req.query.limit ? req.query.limit : 10;
+
         const idUser = req.params.id;
         let userFilter = { userId : idUser };
         const orders = await Order.find(userFilter)
@@ -49,11 +63,17 @@ const orderController = {
         .populate({
             path : 'burgers.burgerId',
             select : { burgerName : 1, price : 1 }
-        });
+        })
+        .limit(limit)
+        .skip(offset);
+
         if (!orders) {
             return res.sendStatus(404);
         };
-        res.status(200).json(orders);
+
+        const count = await Order.countDocuments(userFilter);
+        const data = { 'Orders' : orders, 'Count' : count };
+        res.status(200).json(data);
 
     },
 
