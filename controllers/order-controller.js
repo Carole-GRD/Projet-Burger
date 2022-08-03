@@ -9,9 +9,22 @@ const orderController = {
         const offset = req.query.offset ? req.query.offset : 0;
         const limit = req.query.limit ? req.query.limit : 10;
 
+        let statusFilter;
+        const status = req.query.status;
+        if (status) {
+            if (Array.isArray(status)){
+                statusFilter = {statusOrder : {$in : status}};
+            }
+            else {
+                statusFilter = {statusOrder : status};
+            }
+        }
+        else {
+            statusFilter = {};
+        }
 
 
-        const orders = await Order.find()
+        const orders = await Order.find(statusFilter)
         .populate({
             path : 'userId',
             select : { firstname : 1, lastname : 1, email : 1, adress : 1 }
@@ -53,9 +66,23 @@ const orderController = {
         const offset = req.query.offset ? req.query.offset : 0;
         const limit = req.query.limit ? req.query.limit : 10;
 
+        let statusFilter;
+        const status = req.query.status;
+        if (status) {
+            if (Array.isArray(status)){
+                statusFilter = {statusOrder : {$in : status}};
+            }
+            else {
+                statusFilter = {statusOrder : status};
+            }
+        }
+        else {
+            statusFilter = {};
+        }
+
         const idUser = req.params.id;
         let userFilter = { userId : idUser };
-        const orders = await Order.find(userFilter)
+        const orders = await Order.find({$and : [userFilter, statusFilter]})
         .populate({
             path : 'userId',
             select : { firstname : 1, lastname : 1, email : 1, adress : 1 }
