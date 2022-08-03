@@ -20,17 +20,17 @@ userRouter.route('/')
     //  à commenter ou à supprimer par la suite
     // .post(bodyValidation(userValidator), userController.create)     
     // ------------------------------------------------------------------------
-    .get(userController.getAll);
-    // .get(authentication(['Admin']), userController.getAll);
+    // .get(userController.getAll);
+    .get(authentication(['Admin']), userController.getAll);
 
 
 userRouter.route('/:id')
-    .get(idValidation(), userController.getById)
-    .put(idValidation(), bodyValidation(userValidator), userController.update)
-    .delete(idValidation(), userController.delete);
-    // .get(authentication(['Admin']), idValidation(), userController.getById)
-    // .put(authentication(['Admin']), idValidation(), bodyValidation(userValidator), userController.update)
-    // .delete(authentication(['Admin']), idValidation(), userController.delete);
+    // .get(idValidation(), userController.getById)
+    // .put(idValidation(), bodyValidation(userValidator), userController.update)
+    // .delete(idValidation(), userController.delete);
+    .get(authentication(['Admin']), idValidation(), userController.getById)
+    .put(authentication(['Admin']), idValidation(), bodyValidation(userValidator), userController.update)
+    .delete(authentication(['Admin']), idValidation(), userController.delete);
 
 // on exporte le router "enfant"
 module.exports = userRouter;

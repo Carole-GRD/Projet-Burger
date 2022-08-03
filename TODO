@@ -28,9 +28,9 @@ après avoir fait le "login" et le "register"
 
 ✔ auth-jwt-validation (middleware) @done(22-08-03 13:48)
 
-☐ query -> offset, limit et status
+✔ query -> offset, limit et status @done(22-08-03 15:05)
 
-☐ ajouter authentication dans les router ATTENTION 
+✔ ajouter authentication dans les router ATTENTION @done(22-08-03 15:05)
     -> à faire en dernier sinon on ne peut plus tester dans insomnia
 
 
