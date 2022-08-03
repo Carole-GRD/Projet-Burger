@@ -47,7 +47,6 @@ app.use('/api', router);
 
 // console.log(process.env);
 
-
 // on met le serveur sur écoute
 app.listen(PORT, () => {
     console.log(`Server up on port : ${PORT} [${NODE_ENV}]`);

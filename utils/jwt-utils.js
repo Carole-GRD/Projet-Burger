@@ -28,7 +28,27 @@ const jwtUtils = {
 
     },
 
-    decode : () => {
+    decode : (token) => {
+
+        if (!token) {
+            return Promise.reject(new Error('No Token'));
+        }
+
+        return new Promise((resolve, reject) => {
+
+            const options = {
+                audience : JWT_AUDIENCE,
+                issuer : JWT_ISSUER
+            }
+
+            jwt.verify(token, JWT_SECRET, options, (error, payload) => {
+                if (error) {
+                    return reject(error);
+                }
+                resolve(payload);
+            })
+
+        })
 
     }
 

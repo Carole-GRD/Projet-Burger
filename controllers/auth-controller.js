@@ -25,7 +25,7 @@ const authController = {
         }
 
         const token = await jwtUtils.generate(user);
-        return res.json(token);
+        return res.status(200).json(token);
 
     },
 
@@ -44,7 +44,8 @@ const authController = {
         });
 
         await userToInsert.save();
-        res.status(200).json(userToInsert);
+        const token = await jwtUtils.generate(userToInsert);
+        res.status(200).json(token);
 
     }
 
