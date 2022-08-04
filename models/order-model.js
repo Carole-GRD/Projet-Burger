@@ -15,10 +15,10 @@ const orderSchema = new Schema({
             type : Types.ObjectId,
             ref : Burger,
             require : true},
-        ingredientsSuppl : {
+        ingredientsSuppl : [{
             type : String,
             enum : ['oignons', 'salade', 'tomates', 'moutarde']
-        }
+        }]
     }],
     statusOrder : {
         type : String,

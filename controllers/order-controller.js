@@ -117,9 +117,8 @@ const orderController = {
     update : async (req, res) => {
 
         const id = req.params.id;
-        const { userId, burgers, statusOrder } = req.body;
+        const { burgers, statusOrder } = req.body;
         const orderToUpdate = await Order.findByIdAndUpdate(id, {
-            userId,
             burgers,
             statusOrder
         }, { returnDocument : 'after' })

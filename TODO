@@ -35,9 +35,9 @@ après avoir fait le "login" et le "register"
 
 
 
-☐ ingédients supplémentaires
+✔ ingédients supplémentaires @done(22-08-04 11:19)
 -> tableau ['oignons', 'salade', 'tomates', 'moutarde']
-    ☐ ATTENTION : retirer tous les burgers et les commandes dans insomnia et les refaire car on change le model donc ils ne correspondent plus !
+-> ATTENTION : retirer tous les burgers et les commandes dans insomnia et les refaire car on change le model donc ils ne correspondent plus !
 
 ☐ allergen
 -> soit vérifier le boolean  et obtenir tous ceux qui sont à false
