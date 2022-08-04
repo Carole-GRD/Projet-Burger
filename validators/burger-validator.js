@@ -8,7 +8,7 @@ const burgerValidator = yup.object({
         garniture : yup.array().required(), 
         sauce : yup.string().required() 
     }),
-    allergen : yup.boolean().required(),
+    allergen : yup.string().required(),
     price : yup.number().required().positive(),
     availability : yup.string().trim().required()
 });

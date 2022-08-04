@@ -14,8 +14,12 @@ const orderSchema = new Schema({
         burgerId : {
             type : Types.ObjectId,
             ref : Burger,
-            require : true
-    }}],
+            require : true},
+        ingredientsSuppl : {
+            type : String,
+            enum : ['oignons', 'salade', 'tomates', 'moutarde']
+        }
+    }],
     statusOrder : {
         type : String,
         enum : ['Created', 'Pending', 'Done'],

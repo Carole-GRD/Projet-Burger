@@ -15,7 +15,7 @@ const userValidator = require('../validators/user-validator');
 
 // configuration des différentes routes
 userRouter.route('/')
-    // .get(userController.getAll);
+    .get(userController.getAll);
     // .get(authentication(), userController.getAll);
     // .get(authentication(['Admin']), userController.getAll);
 

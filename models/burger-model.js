@@ -14,7 +14,8 @@ const burgerSchema = new Schema({
         sauce : String
     },
     allergen : {
-        type : Boolean,
+        type : String,
+        enum : ['lactose', 'gluten', 'none'],
         require : true
     },
     price : {

@@ -5,7 +5,22 @@ const burgerController = {
 
     getAll : async (req, res) => {
 
-        const burgers = await Burger.find()
+
+        let allergenFilter;
+        const allergenQuery = req.query.allergen;
+        if (allergenQuery) {
+            if (Array.isArray(allergenQuery)) {
+                allergenFilter = {allergen : {$nin : allergenQuery}};
+            }
+            else {
+                allergenFilter = {allergen : {$ne : allergenQuery}};
+            }
+        }
+        else {
+            allergenFilter = {};
+        }
+
+        const burgers = await Burger.find(allergenFilter)
         .select( { burgerName : 1, ingredients : 1, allergen : 1, price : 1, availability : 1 } );
         res.status(200).json(burgers);
 
