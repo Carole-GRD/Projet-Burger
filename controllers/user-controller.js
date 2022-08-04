@@ -20,8 +20,13 @@ const userController = {
 
     getAll : async (req, res) => {
 
+        const offset = req.query.offset ? req.query.offset : 0;
+        const limit = req.query.limit ? req.query.limit : 10;
+
         const users = await User.find()
-        .select({ firstname : 1, lastname : 1, email : 1, adress : 1, role : 1});
+        .select({ firstname : 1, lastname : 1, email : 1, adress : 1, role : 1})
+        .skip(offset)
+        .limit(limit);
         res.status(200).json(users);
 
     },

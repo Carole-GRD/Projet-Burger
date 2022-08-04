@@ -5,7 +5,11 @@ const burgerController = {
 
     getAll : async (req, res) => {
 
+        const offset = req.query.offset ? req.query.offset : 0;
+        const limit = req.query.limit ? req.query.limit : 10;
 
+        // le filtre "allergenFilter" sert à supprimer les burgers qui contiennent un allergène de la liste des burgers  
+        // -> grâce aux opérateurs "$nin"  et  "$ne"
         let allergenFilter;
         const allergenQuery = req.query.allergen;
         if (allergenQuery) {
@@ -21,7 +25,9 @@ const burgerController = {
         }
 
         const burgers = await Burger.find(allergenFilter)
-        .select( { burgerName : 1, ingredients : 1, allergen : 1, price : 1, availability : 1 } );
+        .select({ burgerName : 1, ingredients : 1, allergen : 1, price : 1, availability : 1})
+        .limit(limit)
+        .skip(offset);
         res.status(200).json(burgers);
 
     },
