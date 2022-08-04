@@ -7,11 +7,14 @@ const authentication = (roles) => {
 
     return async (req, res, next) => {
 
-        const authHeader = req.header['authorization'];
-
-        // const token = authHeader ? authHeader.split(' ')[1] : false ;
-        // ternaire avec syntaxe plus courte :
-        const token = authHeader && authHeader.split(' ')[1];
+        const authHeader = req.headers['authorization'];
+        // console.log(req.bearer);
+        // console.log(authHeader);
+        
+        const token = authHeader ? authHeader.split(' ')[1] : false ;
+        // console.log(token);
+        // syntaxe plus courte :
+        // const token = authHeader && authHeader.split(' ')[1];
 
         if (!token) {
             return res.sendStatus(401);    // Unauthorized

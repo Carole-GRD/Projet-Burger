@@ -1,8 +1,8 @@
 // on importe les router "enfants"
-const userRouter = require('./user-router');
 const burgerRouter = require('./burger-router');
 const orderRouter = require('./order-router');
 const authRouter = require('./auth-router');
+const userRouter = require('./user-router');
 
 // on importe le module express et on utilise la méthode Router()
 const router = require('express').Router();

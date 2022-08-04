@@ -1,7 +1,7 @@
 Commandes
 ----------
 'Cmd/Ctrl+Enter' // Triggers `Todo: Toggle Box`
-'Tab Ctrl+Enter' // Triggers `Todo: Toggle Box` (sous tâche)
+'Tab Ctrl+Enter' // Triggers `Todo: Toggle Box` 
 'Alt+Enter' // Triggers `Todo: Toggle Box`
 'Alt+D' // Triggers `Todo: Toggle Done`
 'Alt+C' // Triggers `Todo: Toggle Cancelled`
@@ -34,5 +34,24 @@ après avoir fait le "login" et le "register"
     -> à faire en dernier sinon on ne peut plus tester dans insomnia
 
 
+
+☐ ingédients supplémentaires
+-> tableau ['oignons', 'salade', 'tomates', 'moutarde']
+    ☐ ATTENTION : retirer tous les burgers et les commandes dans insomnia et les refaire car on change le model donc ils ne correspondent plus !
+
+☐ allergen
+-> soit vérifier le boolean  et obtenir tous ceux qui sont à false
+-> soit faire un tableau avec les allergen (lactose, gluten) et faire en sorte d'obtenir tous les burgers qui n'ont pas cet (ces) allergen(s) 
+
+☐ middlewares supplémentaires
+    ☐ user 
+        ☐ getById -> le user veut voir les infos sur son compte 
+    ☐ order
+        ☐ getById -> le user veut voir une commande en particulier
+        ☐ getByUser -> le user veut voir toutes ses commandes
+-> comparer l'id du req.params.id à l'id du decodedToken
+
+
+☐  remettre authentication dans les router ATTENTION
 
 

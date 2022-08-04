@@ -21,7 +21,7 @@ const jwtUtils = {
                 if (error) {
                     return reject(error);
                 }
-                resolve({token});
+                resolve(token);
             });
 
         });

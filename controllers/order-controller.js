@@ -42,7 +42,7 @@ const orderController = {
 
     },
 
-    getByID : async (req, res) => {
+    getById : async (req, res) => {
 
         const id = req.params.id;
         const order = await Order.findById(id)

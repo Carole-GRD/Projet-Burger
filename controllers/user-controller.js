@@ -21,7 +21,7 @@ const userController = {
     getAll : async (req, res) => {
 
         const users = await User.find()
-        .select({ firstname : 1, lastname : 1, email : 1, adress : 1});
+        .select({ firstname : 1, lastname : 1, email : 1, adress : 1, role : 1});
         res.status(200).json(users);
 
     },
